@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+
+  &::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+p {
+  font-weight: normal;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  background: transparent;
+  border: none;
+
+  * {
+    font-family: inherit;
+  }
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+p a {
+  color: inherit;
+}
+
+/* Remove inset shadow in Safari */
+input,
+textarea {
+  appearance: none;
+}
+
+/* Remove red shadow invalid field in FireFox */
+input,
+textarea:invalid,
+:-moz-submit-invalid,
+:-moz-ui-invalid,
+:not(output):-moz-ui-invalid:-moz-focusring {
+  box-shadow: none !important;
+}

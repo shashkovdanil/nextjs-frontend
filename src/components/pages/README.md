@@ -1,0 +1,1 @@
+List of components that relate to specific pages. For example, the components for the `/verify` page should be in the `src/components/pages/verify` directory.

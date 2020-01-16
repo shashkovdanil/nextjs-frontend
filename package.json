@@ -1,41 +1,35 @@
 {
   "name": "next-template",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext ts,tsx src/ --fix && stylelint src/",
-    "test": "jest --passWithNoTests",
+    "lint:ts": "eslint --ext ts,tsx src/",
+    "lint:css": "stylelint src/**/*.css",
     "start:dev": "cross-env NODE_ENV=development nodemon",
+    "build:stage": "cross-env NODE_ENV=stage next build && tsc --project tsconfig.server.json",
+    "start:stage": "cross-env NODE_ENV=stage node dist/index.js",
     "build:prod": "cross-env NODE_ENV=production next build && tsc --project tsconfig.server.json",
     "start:prod": "cross-env NODE_ENV=production node dist/index.js"
   },
   "dependencies": {
-    "compression": "^1.7.4",
     "dotenv-webpack": "^1.7.0",
     "express": "^4.17.1",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "9.1.1",
-    "react": "16.10.2",
-    "react-dom": "16.10.2",
-    "styled-components": "^4.4.0"
+    "next": "^9.2.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@types/compression": "^1.0.1",
+    "@babel/core": "^7.8.3",
     "@types/express": "^4.17.1",
     "@types/http-proxy-middleware": "^0.19.3",
-    "@types/jest": "^24.0.19",
-    "@types/node": "^12.11.1",
+    "@types/node": "^13.1.7",
     "@types/react": "^16.9.9",
-    "@types/styled-components": "^4.1.19",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
+    "autoprefixer": "^9.7.4",
     "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.9.0",
-    "babel-plugin-styled-components": "^1.10.6",
     "cross-env": "^6.0.3",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-config-react-app": "^5.0.2",
@@ -47,22 +41,26 @@
     "eslint-plugin-react-hooks": "^2.1.2",
     "http-proxy-middleware": "^0.20.0",
     "husky": "^3.0.9",
-    "jest": "^24.9.0",
-    "jest-cli": "^24.9.0",
     "lint-staged": "^9.4.2",
-    "nodemon": "^1.19.4",
-    "prettier": "^1.18.2",
-    "puppeteer": "^1.20.0",
-    "react-addons-test-utils": "^15.6.2",
-    "react-test-renderer": "^16.10.2",
-    "stylelint": "^11.1.1",
+    "nodemon": "^2.0.2",
+    "postcss-nested": "^4.2.1",
+    "prettier": "^1.19.1",
+    "stylelint": "^13.0.0",
     "stylelint-config-recess-order": "^2.0.3",
     "stylelint-config-recommended": "^3.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.8.0",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.4"
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.4"
   },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie 11",
+    "not ie_mob 11",
+    "not op_mini all",
+    "not op_mob > 0",
+    "not and_qq > 0",
+    "not android > 0"
+  ],
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "extends": [
@@ -100,34 +98,10 @@
     "endOfLine": "auto"
   },
   "stylelint": {
-    "processors": [
-      "stylelint-processor-styled-components"
-    ],
     "extends": [
       "stylelint-config-recommended",
-      "stylelint-config-styled-components",
       "stylelint-config-recess-order"
     ]
-  },
-  "jest": {
-    "setupFiles": [
-      "<rootDir>/jest.setup.js"
-    ],
-    "testRegex": "(/src/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$",
-    "transform": {
-      "^.+\\.tsx?$": "babel-jest"
-    },
-    "testPathIgnorePatterns": [
-      "<rootDir>/.next/",
-      "<rootDir>/node_modules/"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx"
-    ],
-    "collectCoverage": false
   },
   "husky": {
     "hooks": {
@@ -135,9 +109,9 @@
     }
   },
   "lint-staged": {
-    "*.(ts|tsx)": [
-      "yarn lint",
-      "yarn test",
+    "*.(ts|tsx)": "eslint --ext ts,tsx src/ --fix",
+    "*.css": [
+      "stylelint --ip *.md src/**/*.css --fix",
       "git add"
     ]
   }

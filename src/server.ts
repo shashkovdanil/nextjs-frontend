@@ -1,6 +1,5 @@
 import express, { Request, Response } from 'express'
 import next from 'next'
-import compression from 'compression'
 import proxyMiddleware from 'http-proxy-middleware'
 
 interface DevProxy {
@@ -15,7 +14,7 @@ interface DevProxy {
 
 const devProxy: DevProxy = {
   '/api': {
-    target: 'https://api.url/api/',
+    target: 'https://api.url/api/', // Set up your API URL
     pathRewrite: { '^/api': '/' },
     changeOrigin: true,
   },
@@ -38,8 +37,6 @@ app
         server.use(proxyMiddleware(ctx, devProxy[ctx]))
       })
     }
-
-    server.use(compression())
 
     server.get('*', (req: Request, res: Response) => handle(req, res))
 

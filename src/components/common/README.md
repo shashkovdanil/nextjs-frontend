@@ -1,1 +1,1 @@
-Список общих компонентов, которые используются минимум в двух местах. В основном это инпуты, кнопки, чекбоксы и т.п.
+A list of common components that are used in at least two places. These are usually inputs, buttons, checkboxes, etc.

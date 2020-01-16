@@ -1,0 +1,12 @@
+.title {
+  margin: 50px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: palevioletred;
+
+  span {
+    text-decoration: underline;
+  }
+}
