@@ -1,11 +1,11 @@
 # Template for Next.js App
 
-The template is based on [TypeScript] (https://www.typescriptlang.org/) and [Next.js](https://nextjs.org/) and includes:
+The template is based on [TypeScript](https://www.typescriptlang.org/) and [Next.js](https://nextjs.org/) and includes:
 
 - Setting the `env` variables by creating the file` env.${development | stage | production}`
 - Proxy settings (edited in the file [`src/server.ts`](https://github.com/shashkovdanil/next-template/blob/master/src/server.ts#L16))
-- CSS Modules for styling
-- ESLint (create-react-app config), Prettier, Stylelint)
+- CSS Modules with [PostCSS](https://postcss.org/) for styling
+- ESLint (create-react-app config), Prettier, Stylelint
 - Git hooks (husky with lint-staged)
 
 ## Usage
@@ -21,6 +21,6 @@ yarn start:dev
 ## Production
 
 ```sh
-yarn build:prod
-yarn start:prod
+yarn build:prod # build production bundle
+yarn start:prod # start server
 ```
