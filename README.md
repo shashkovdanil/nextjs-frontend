@@ -7,6 +7,7 @@ The template is based on [TypeScript](https://www.typescriptlang.org/) and [Next
 - CSS Modules with [PostCSS](https://postcss.org/) for styling
 - ESLint (create-react-app config), Prettier, Stylelint
 - Git hooks (husky with lint-staged)
+- Aliases for `src/*` directories
 
 ## Usage
 
